@@ -1,0 +1,86 @@
+[
+  {
+    "abbr": "CIS",
+    "name": "IEEE Computational Intelligence Society",
+    "description": "Explores AI, machine learning, and intelligent systems via hands-on projects and algorithmic research.",
+    "accentColor": "var(--color-ibm-blue)"
+  },
+  {
+    "abbr": "IAS",
+    "name": "IEEE Industry Applications Society",
+    "description": "Bridges electrical and electronic theory with real-world industrial and commercial practices.",
+    "accentColor": "var(--color-ibm-purple)"
+  },
+  {
+    "abbr": "CS",
+    "name": "IEEE Computer Society",
+    "description": "Focuses on technical excellence in computer science, software engineering, and systems architecture.",
+    "accentColor": "var(--color-ibm-teal)"
+  },
+  {
+    "abbr": "PES",
+    "name": "IEEE Power & Energy Society",
+    "description": "Researching electric power, global energy systems, utility standards, and smart grid infrastructure.",
+    "accentColor": "var(--color-ibm-magenta)"
+  },
+  {
+    "abbr": "SYSC",
+    "name": "IEEE Systems Council",
+    "description": "Dedicated to multi-disciplinary systems engineering and holistic, global systems thinking.",
+    "accentColor": "var(--color-ibm-blue)"
+  },
+  {
+    "abbr": "AESS",
+    "name": "IEEE Aerospace and Electronic Systems Society",
+    "description": "Complex space, air, marine, and ground environmental engineering systems and radar tech.",
+    "accentColor": "var(--color-ibm-purple)"
+  },
+  {
+    "abbr": "AP-S",
+    "name": "IEEE Antennas and Propagation Society",
+    "description": "Advancing the theory, engineering design, and application of antennas and wave propagation.",
+    "accentColor": "var(--color-ibm-teal)"
+  },
+  {
+    "abbr": "MTT-S",
+    "name": "IEEE Microwave Theory and Technology Society",
+    "description": "Advances radio-frequency (RF), microwave, millimeter-wave, and terahertz technologies.",
+    "accentColor": "var(--color-ibm-magenta)"
+  },
+  {
+    "abbr": "EDS",
+    "name": "IEEE Electron Devices Society",
+    "description": "Investigates structural advancements in electron, ion device technologies, and nano-fabrication.",
+    "accentColor": "var(--color-ibm-blue)"
+  },
+  {
+    "abbr": "Sensors",
+    "name": "IEEE Sensors Council",
+    "description": "Focuses on the foundational theory, physical design, and application of sensors and sensing phenomena.",
+    "accentColor": "var(--color-ibm-purple)"
+  },
+  {
+    "abbr": "SSCS",
+    "name": "IEEE Solid-State Circuits Society",
+    "description": "Dedicated to integrated circuit (IC) architecture, hardware design, and microchip fabrication.",
+    "accentColor": "var(--color-ibm-teal)"
+  },
+  {
+    "abbr": "CEDA",
+    "name": "IEEE Council on Electronic Design Automation",
+    "description": "Provides a structural anchor for the Computer-Aided Design (CAD) and EDA software community.",
+    "accentColor": "var(--color-ibm-magenta)"
+  },
+  {
+    "abbr": "SPS",
+    "name": "IEEE Signal Processing Society",
+    "description": "An academic and industry research-focused chapter for signal processing algorithms and engineers.",
+    "accentColor": "var(--color-ibm-blue)"
+  },
+  {
+    "abbr": "CTSoc",
+    "name": "IEEE Consumer Technology Society",
+    "description": "Focuses on practical consumer electronic hardware implementations and electronic engineering system analysis.",
+    "accentColor": "var(--color-ibm-purple)"
+  }
+]

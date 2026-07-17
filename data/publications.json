@@ -1,0 +1,38 @@
+[
+  {
+    "title": "Quantum Computing Review: A Decade of Research",
+    "authors": "Sandeep Kumar Sood; Pooja",
+    "venue": "IEEE Transactions on Engineering Management ( Volume: 71)",
+    "year": "2023",
+    "type": "CONFERENCE PAPER",
+    "abstract": "Quantum computing (QC) has the potential to be the next abstruse technology, with a wide range of possible applications and ramifications for organizations and markets. QC provides an exponential speedup by employing quantum mechanics principles, including superposition and entanglement. The potential advantages offered by the revolutionary paradigm have propelled scientific productions. Therefore, a highly pertinent investigation is required to elucidate the evolution of path-breaking trajectories for scientific advances. This study confronts the idea by presenting a scientometric analysis for the recent decade of literature collected from the Web of Science database in the computer science discipline. The scientometric implications of the article identify the significant research domains and provide an intensive insight into the publication patterns, country collaboration, geographical analysis, citation patterns, eminent journals, and research frontiers of each domain of QC. The scholarly literature analysis identifies key challenges in the QC knowledge domain. Overall, the inference reveals an evolutionary pathway for future research directives and collaboration in the domains of QC research. The research findings provide innovative significance to information scientists by presenting a comprehensive overview of QC research to help them find relevant applications, research topics, and key challenges.",
+    "link": "https://ieeexplore.ieee.org/document/10167529",
+    "color": "var(--color-ibm-blue)",
+    "imageUrl": "/uploads/image-1784109189105-828681022.jpg",
+    "id": 3
+  },
+  {
+    "title": "Utilizing supplementary high-strength suture tying over a bone bridge enhances the effectiveness of interference screw as tibial fixation method in anterior cruciate ligament reconstruction",
+    "authors": "Alvaro Arriaza, Pablo Miragaya, Juan Mora-Macías, Esther Reina-Romo, Pablo Blázquez-Carmona, Fernando Marco & Rafael Arriaza ",
+    "venue": "Knee Surgery & Related Research",
+    "year": "2025",
+    "type": "JOURNAL ARTICLE",
+    "abstract": "Tibial fixation is the biomechanical weak point in anterior cruciate ligament (ACL) reconstruction, with numerous techniques proposed to address this challenge. This study evaluates the utility of a simple, cost-effective system: high-strength suture tying over a bone bridge (BB). Its effectiveness as standalone fixation and as a supplement to standard interference screw (IS) fixation is compared with IS alone and supplemented with other commercial systems.",
+    "link": "https://link.springer.com/article/10.1186/s43019-026-00325-5",
+    "color": "var(--color-ibm-purple)",
+    "imageUrl": "/uploads/image-1784108950213-830021250.webp",
+    "id": 2
+  },
+  {
+    "title": "Quantum Test",
+    "authors": "Anshuman Pattnaik",
+    "venue": "ieee",
+    "year": "2026",
+    "type": "CONFERENCE PAPER",
+    "abstract": "test 1",
+    "link": "#",
+    "color": "var(--color-ibm-blue)",
+    "imageUrl": "/uploads/image-1784025972634-220190143.avif",
+    "id": 1
+  }
+]

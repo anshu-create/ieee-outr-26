@@ -1,0 +1,40 @@
+[
+  {
+    "title": "SIH2026",
+    "type": "HACKATHON",
+    "status": "Registration Open",
+    "date": "august 2, 20206",
+    "location": "outr, Academic Building",
+    "description": "trying",
+    "id": 4,
+    "link": "https://www.sih.gov.in/",
+    "imageUrl": "/uploads/image-1784115801398-695294256.png"
+  },
+  {
+    "id": 1,
+    "type": "HACKATHON",
+    "date": "July 28, 2026",
+    "title": "HackOUTR 2026",
+    "description": "A 36-hour hackathon challenging participants to build solutions for sustainable development goals.",
+    "location": "Main Campus Hub",
+    "status": "Registration Open"
+  },
+  {
+    "id": 2,
+    "type": "WORKSHOP",
+    "date": "August 5, 2026",
+    "title": "Edge AI with TinyML",
+    "description": "Hands-on workshop on deploying machine learning models on microcontrollers and edge devices.",
+    "location": "Lab Complex 4",
+    "status": "Registration Open"
+  },
+  {
+    "id": 3,
+    "type": "GUEST LECTURE",
+    "date": "August 12, 2026",
+    "title": "Future of Quantum Computing",
+    "description": "Distinguished lecture by IBM Quantum researchers on breakthroughs in error mitigation.",
+    "location": "Virtual (WebEx)",
+    "status": "Coming Soon"
+  }
+]

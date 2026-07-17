@@ -1,0 +1,78 @@
+[
+  {
+    "id": 1,
+    "name": "Aryan Patel",
+    "role": "Branch Chair",
+    "category": "executive"
+  },
+  {
+    "id": 2,
+    "name": "Sneha Mohanty",
+    "role": "Vice Chair",
+    "category": "executive"
+  },
+  {
+    "id": 3,
+    "name": "Rohan Das",
+    "role": "Secretary",
+    "category": "executive"
+  },
+  {
+    "id": 4,
+    "name": "Priya Mishra",
+    "role": "Treasurer",
+    "category": "executive"
+  },
+  {
+    "id": 5,
+    "name": "Dr. Sanjay Kumar Jena",
+    "role": "Branch Counsellor",
+    "category": "faculty"
+  },
+  {
+    "id": 6,
+    "name": "Prof. Meera Sahoo",
+    "role": "Faculty Advisor",
+    "category": "faculty"
+  },
+  {
+    "id": 7,
+    "name": "Dr. Rajesh Tripathy",
+    "role": "Faculty Coordinator",
+    "category": "faculty"
+  },
+  {
+    "id": 8,
+    "name": "Vikram Singh",
+    "role": "Web Development Lead",
+    "category": "team"
+  },
+  {
+    "id": 9,
+    "name": "Ananya Patnaik",
+    "role": "Graphics & Design Lead",
+    "category": "team"
+  },
+  {
+    "id": 10,
+    "name": "Ishaan Rao",
+    "role": "Public Relations Lead",
+    "category": "team"
+  },
+  {
+    "id": 11,
+    "name": "Diya Sharma",
+    "role": "Content & Editorial Lead",
+    "category": "team"
+  },
+  {
+    "name": "Dr.Rudranarayan Pradhan",
+    "role": "Student Branch Councellor",
+    "category": "faculty",
+    "photoUrl": "/api/media/media-1784108625229-51052421.jpg",
+    "scholarLink": "https://scholar.google.com/citations?user=2ZG3RhcAAAAJ&hl=en",
+    "linkedinLink": "",
+    "githubLink": "",
+    "id": 12
+  }
+]
