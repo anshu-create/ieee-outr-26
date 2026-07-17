@@ -156,8 +156,17 @@ export default function AdminMembersPage() {
                   </label>
                 </div>
                 {photoUrl && (
-                  <div className="mt-2 w-20 h-20 rounded bg-bg-secondary overflow-hidden border border-border">
-                    <img src={photoUrl} alt="Preview" className="w-full h-full object-cover" />
+                  <div className="mt-2 flex items-start gap-4">
+                    <div className="w-20 h-20 rounded bg-bg-secondary overflow-hidden border border-border">
+                      <img src={photoUrl} alt="Preview" className="w-full h-full object-cover" />
+                    </div>
+                    <button
+                      type="button"
+                      onClick={() => setPhotoUrl("")}
+                      className="text-sm text-red-500 hover:text-red-400 hover:underline px-2 py-1 mt-1"
+                    >
+                      Remove Photo
+                    </button>
                   </div>
                 )}
               </div>

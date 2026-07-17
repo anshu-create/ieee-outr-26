@@ -35,20 +35,25 @@ export default function AdminMediaPage() {
     setIsUploading(true);
     setError(null);
     
-    const file = e.target.files[0];
-    const formData = new FormData();
-    formData.append("file", file);
+    const filesArray = Array.from(e.target.files);
 
     try {
-      const res = await fetch("/api/media", {
-        method: "POST",
-        body: formData,
-      });
+      await Promise.all(
+        filesArray.map(async (file) => {
+          const formData = new FormData();
+          formData.append("file", file);
+          
+          const res = await fetch("/api/media", {
+            method: "POST",
+            body: formData,
+          });
 
-      if (!res.ok) throw new Error("Upload failed");
+          if (!res.ok) throw new Error(`Upload failed for ${file.name}`);
+        })
+      );
       
       await fetchFiles();
-      showToast("Image uploaded successfully");
+      showToast(`${filesArray.length} image(s) uploaded successfully`);
     } catch (err: any) {
       setError(err.message);
     } finally {
@@ -91,6 +96,7 @@ export default function AdminMediaPage() {
               type="file" 
               className="hidden" 
               accept="image/*" 
+              multiple
               onChange={handleUpload} 
               disabled={isUploading}
             />
