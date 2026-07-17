@@ -55,7 +55,7 @@ export default async function MediaPage() {
           </div>
 
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-6">
-            {mediaFiles.map((file) => (
+            {mediaFiles.map((file: { filename: string; url: string }) => (
               <div 
                 key={file.filename} 
                 className="relative aspect-square rounded-xl overflow-hidden border border-border group bg-bg-secondary shadow-sm hover:shadow-md transition-all"
