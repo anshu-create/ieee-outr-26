@@ -1,6 +1,5 @@
 import type { Metadata } from "next";
-import { promises as fs } from "fs";
-import path from "path";
+import { v2 as cloudinary } from "cloudinary";
 
 export const metadata: Metadata = {
   title: "Media Gallery | IEEE OUTR Student Branch",
@@ -9,13 +8,25 @@ export const metadata: Metadata = {
 
 export const dynamic = "force-dynamic";
 
+cloudinary.config({
+  cloud_name: process.env.CLOUDINARY_CLOUD_NAME,
+  api_key: process.env.CLOUDINARY_API_KEY,
+  api_secret: process.env.CLOUDINARY_API_SECRET,
+});
+
 async function getMediaFiles() {
   try {
-    const mediaDir = path.join(process.cwd(), "assets", "media");
-    await fs.mkdir(mediaDir, { recursive: true });
-    const files = await fs.readdir(mediaDir);
-    return files.filter(file => /\.(jpg|jpeg|png|gif|webp|avif)$/i.test(file));
+    const result = await cloudinary.api.resources({
+      type: "upload",
+      prefix: "media-",
+      max_results: 100,
+    });
+    return result.resources.map((res: any) => ({
+      filename: res.public_id,
+      url: res.secure_url,
+    }));
   } catch (error) {
+    console.error("Error fetching media from Cloudinary:", error);
     return [];
   }
 }
@@ -44,14 +55,14 @@ export default async function MediaPage() {
           </div>
 
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-6">
-            {mediaFiles.map((filename) => (
+            {mediaFiles.map((file) => (
               <div 
-                key={filename} 
+                key={file.filename} 
                 className="relative aspect-square rounded-xl overflow-hidden border border-border group bg-bg-secondary shadow-sm hover:shadow-md transition-all"
               >
                 <img 
-                  src={`/api/media/${filename}`}
-                  alt={filename}
+                  src={file.url}
+                  alt={file.filename}
                   className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105"
                   loading="lazy"
                 />

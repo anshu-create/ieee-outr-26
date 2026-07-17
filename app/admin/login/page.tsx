@@ -1,5 +1,5 @@
 import React from "react";
-import { handleLoginAction } from "./actions";
+import LoginForm from "./LoginForm";
 
 export default async function LoginPage({
   searchParams,
@@ -19,46 +19,7 @@ export default async function LoginPage({
           </p>
         </div>
 
-        {error && (
-          <div className="mb-6 p-3 bg-red-500/10 border border-red-500/20 text-red-500 rounded-lg text-body-sm text-center">
-            {error}
-          </div>
-        )}
-
-        <form action={handleLoginAction} className="space-y-6">
-          <div>
-            <label className="block text-mono-sm text-text-secondary uppercase mb-2 font-medium">
-              Username
-            </label>
-            <input
-              type="text"
-              name="username"
-              required
-              className="w-full px-4 py-3 bg-bg-primary border border-border rounded-lg text-text-primary placeholder-text-tertiary focus:outline-none focus:border-ibm-blue transition-colors text-body-md"
-              placeholder="e.g. admin"
-            />
-          </div>
-
-          <div>
-            <label className="block text-mono-sm text-text-secondary uppercase mb-2 font-medium">
-              Password
-            </label>
-            <input
-              type="password"
-              name="password"
-              required
-              className="w-full px-4 py-3 bg-bg-primary border border-border rounded-lg text-text-primary placeholder-text-tertiary focus:outline-none focus:border-ibm-blue transition-colors text-body-md"
-              placeholder="••••••••"
-            />
-          </div>
-
-          <button
-            type="submit"
-            className="w-full bg-ibm-blue hover:bg-ibm-blue-hover text-white py-3 rounded-lg text-body-md font-semibold transition-colors shadow-sm"
-          >
-            Access Dashboard
-          </button>
-        </form>
+        <LoginForm error={error} />
 
         <p className="text-center text-xs text-text-tertiary mt-8">
           Default credentials: admin / ieeeoutr2026
