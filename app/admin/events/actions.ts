@@ -19,6 +19,9 @@ export async function createEventAction(formData: FormData, imageUrl?: string) {
   const link = formData.get("link") as string;
   if (link) newEvent.link = link;
 
+  const time = formData.get("time") as string;
+  if (time) newEvent.time = time;
+
   if (imageUrl) newEvent.imageUrl = imageUrl;
 
   const speaker = formData.get("speaker") as string;
@@ -45,6 +48,9 @@ export async function updateEventAction(id: number, formData: FormData, imageUrl
 
   const link = formData.get("link") as string;
   if (link) updatedEvent.link = link;
+
+  const time = formData.get("time") as string;
+  if (time) updatedEvent.time = time;
 
   if (imageUrl) updatedEvent.imageUrl = imageUrl;
 

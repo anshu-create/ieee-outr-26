@@ -31,7 +31,11 @@ export function EventCard({ event }: EventCardProps) {
         </div>
 
         <div className="mb-4">
-          <p className="text-body-sm text-text-secondary mb-1">{event.date}</p>
+          <p className="text-body-sm text-text-secondary mb-1">
+            {event.date}
+            {event.date && event.time && " | "}
+            {event.time}
+          </p>
           <h3 className="text-heading-sm text-text-primary group-hover:text-ibm-blue transition-colors line-clamp-2">
             {event.title}
           </h3>

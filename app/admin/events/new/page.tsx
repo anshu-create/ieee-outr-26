@@ -111,7 +111,7 @@ export default function NewEventPage() {
             </div>
           </div>
 
-          <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+          <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
             <div>
               <label className="block text-mono-sm text-text-secondary uppercase mb-2 font-medium">
                 Date (Optional)
@@ -121,6 +121,18 @@ export default function NewEventPage() {
                 name="date"
                 className="w-full px-4 py-2.5 bg-bg-primary border border-border rounded-lg text-text-primary focus:outline-none focus:border-ibm-blue transition-colors text-body-md"
                 placeholder="e.g. July 28, 2026"
+              />
+            </div>
+
+            <div>
+              <label className="block text-mono-sm text-text-secondary uppercase mb-2 font-medium">
+                Time (Optional)
+              </label>
+              <input
+                type="text"
+                name="time"
+                className="w-full px-4 py-2.5 bg-bg-primary border border-border rounded-lg text-text-primary focus:outline-none focus:border-ibm-blue transition-colors text-body-md"
+                placeholder="e.g. 10:00 AM - 12:00 PM"
               />
             </div>
 

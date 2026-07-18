@@ -25,6 +25,7 @@ export interface Event {
   id: number;
   type: string;
   date?: string;
+  time?: string;
   title: string;
   description: string;
   location: string;
