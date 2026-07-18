@@ -5,17 +5,24 @@ import { revalidatePath } from "next/cache";
 import { redirect } from "next/navigation";
 
 export async function createEventAction(formData: FormData, imageUrl?: string) {
-  const newEvent = {
+  const newEvent: any = {
     title: formData.get("title") as string,
     type: formData.get("type") as string,
     status: formData.get("status") as string,
-    date: formData.get("date") as string,
     location: formData.get("location") as string,
     description: formData.get("description") as string,
-    link: formData.get("link") as string,
-    imageUrl: imageUrl || undefined,
-    speaker: (formData.get("speaker") as string) || undefined,
   };
+
+  const date = formData.get("date") as string;
+  if (date) newEvent.date = date;
+
+  const link = formData.get("link") as string;
+  if (link) newEvent.link = link;
+
+  if (imageUrl) newEvent.imageUrl = imageUrl;
+
+  const speaker = formData.get("speaker") as string;
+  if (speaker) newEvent.speaker = speaker;
 
   await addEvent(newEvent);
 
@@ -25,17 +32,24 @@ export async function createEventAction(formData: FormData, imageUrl?: string) {
 }
 
 export async function updateEventAction(id: number, formData: FormData, imageUrl?: string) {
-  const updatedEvent = {
+  const updatedEvent: any = {
     title: formData.get("title") as string,
     type: formData.get("type") as string,
     status: formData.get("status") as string,
-    date: formData.get("date") as string,
     location: formData.get("location") as string,
     description: formData.get("description") as string,
-    link: formData.get("link") as string,
-    imageUrl: imageUrl || undefined,
-    speaker: (formData.get("speaker") as string) || undefined,
   };
+
+  const date = formData.get("date") as string;
+  if (date) updatedEvent.date = date;
+
+  const link = formData.get("link") as string;
+  if (link) updatedEvent.link = link;
+
+  if (imageUrl) updatedEvent.imageUrl = imageUrl;
+
+  const speaker = formData.get("speaker") as string;
+  if (speaker) updatedEvent.speaker = speaker;
 
   await updateEvent(id, updatedEvent);
 

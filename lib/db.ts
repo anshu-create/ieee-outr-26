@@ -24,7 +24,7 @@ export interface Publication {
 export interface Event {
   id: number;
   type: string;
-  date: string;
+  date?: string;
   title: string;
   description: string;
   location: string;

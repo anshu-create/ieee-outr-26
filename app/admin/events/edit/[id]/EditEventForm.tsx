@@ -110,13 +110,12 @@ export function EditEventForm({ event }: { event: Event }) {
         <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
           <div>
             <label className="block text-mono-sm text-text-secondary uppercase mb-2 font-medium">
-              Date
+              Date (Optional)
             </label>
             <input
               type="text"
               name="date"
-              required
-              defaultValue={event.date}
+              defaultValue={event.date || ""}
               className="w-full px-4 py-2.5 bg-bg-primary border border-border rounded-lg text-text-primary focus:outline-none focus:border-ibm-blue transition-colors text-body-md"
               placeholder="e.g. July 28, 2026"
             />
