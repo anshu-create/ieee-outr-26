@@ -1,6 +1,7 @@
 import { getEvents } from "@/lib/db";
 import type { Metadata } from "next";
 import { EventCard } from "@/components/event-card";
+import Link from "next/link";
 
 export const metadata: Metadata = {
   title: "Events | IEEE OUTR Student Branch",
@@ -50,8 +51,8 @@ export default async function EventsPage() {
 
           <div className="space-y-4">
             {archivedEvents.map((archive) => (
-              <a 
-                href={archive.link || "#"} 
+              <Link 
+                href={`/events/${archive.id}`} 
                 key={archive.id} 
                 className="flex items-center justify-between p-4 bg-surface border border-border rounded-lg hover:border-ibm-blue transition-colors cursor-pointer group block"
               >
@@ -60,7 +61,7 @@ export default async function EventsPage() {
                   <h3 className="text-body-md font-medium text-text-primary group-hover:text-ibm-blue">{archive.title}</h3>
                 </div>
                 <span className="hidden md:inline-block text-mono-sm text-text-secondary">{archive.type}</span>
-              </a>
+              </Link>
             ))}
             {archivedEvents.length === 0 && (
               <p className="text-text-secondary">No archived events found.</p>

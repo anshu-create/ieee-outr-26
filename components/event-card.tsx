@@ -57,23 +57,17 @@ export function EventCard({ event }: EventCardProps) {
             </svg>
             <span className="truncate max-w-[150px]" title={event.location}>{event.location}</span>
           </span>
-          {event.link && (
-            <button className="text-ibm-blue font-semibold text-sm hover:underline">
-              {event.status === "Registration Open" ? "Register" : "View"}
-            </button>
-          )}
+          <span className="text-ibm-blue font-semibold text-sm group-hover:underline">
+            View Details &rarr;
+          </span>
         </div>
       </div>
     </div>
   );
 
-  if (event.link && event.link !== "#") {
-    return (
-      <Link href={event.link} className="block h-full">
-        {cardContent}
-      </Link>
-    );
-  }
-
-  return <div className="h-full">{cardContent}</div>;
+  return (
+    <Link href={`/events/${event.id}`} className="block h-full">
+      {cardContent}
+    </Link>
+  );
 }

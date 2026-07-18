@@ -103,6 +103,21 @@ export async function getEvents(): Promise<Event[]> {
   }
 }
 
+export async function getEventById(id: number): Promise<Event | null> {
+  try {
+    const { getDoc } = await import("firebase/firestore");
+    const docRef = doc(db, "events", String(id));
+    const docSnap = await getDoc(docRef);
+    if (docSnap.exists()) {
+      return docSnap.data() as Event;
+    }
+    return null;
+  } catch (error) {
+    console.error("Error getting event by id:", error);
+    return null;
+  }
+}
+
 export async function addEvent(newEvent: Omit<Event, "id">): Promise<void> {
   const events = await getEvents();
   const newId = events.length > 0 ? Math.max(...events.map((e) => e.id)) + 1 : 1;
