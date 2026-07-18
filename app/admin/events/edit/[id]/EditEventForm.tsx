@@ -113,11 +113,17 @@ export function EditEventForm({ event }: { event: Event }) {
               Date (Optional)
             </label>
             <input
-              type="text"
+              type="date"
               name="date"
-              defaultValue={event.date || ""}
-              className="w-full px-4 py-2.5 bg-bg-primary border border-border rounded-lg text-text-primary focus:outline-none focus:border-ibm-blue transition-colors text-body-md"
-              placeholder="e.g. July 28, 2026"
+              defaultValue={
+                event.date 
+                  ? (() => {
+                      const d = new Date(event.date);
+                      return isNaN(d.getTime()) ? "" : d.toISOString().split("T")[0];
+                    })() 
+                  : ""
+              }
+              className="w-full px-4 py-2.5 bg-bg-primary border border-border rounded-lg text-text-primary focus:outline-none focus:border-ibm-blue transition-colors text-body-md [color-scheme:dark]"
             />
           </div>
 

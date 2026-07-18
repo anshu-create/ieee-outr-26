@@ -97,6 +97,24 @@ export async function getEvents(): Promise<Event[]> {
     querySnapshot.forEach((doc) => {
       events.push(doc.data() as Event);
     });
+
+    // Sort events: No date (Coming Soon) first, then by date descending
+    events.sort((a, b) => {
+      if (!a.date && !b.date) return 0;
+      if (!a.date) return -1;
+      if (!b.date) return 1;
+      
+      const dateA = new Date(a.date).getTime();
+      const dateB = new Date(b.date).getTime();
+      
+      // If parsing fails, treat as older
+      if (isNaN(dateA) && isNaN(dateB)) return 0;
+      if (isNaN(dateA)) return 1;
+      if (isNaN(dateB)) return -1;
+      
+      return dateB - dateA;
+    });
+
     return events;
   } catch (error) {
     console.error("Error getting events:", error);

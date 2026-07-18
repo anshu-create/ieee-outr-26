@@ -117,10 +117,9 @@ export default function NewEventPage() {
                 Date (Optional)
               </label>
               <input
-                type="text"
+                type="date"
                 name="date"
-                className="w-full px-4 py-2.5 bg-bg-primary border border-border rounded-lg text-text-primary focus:outline-none focus:border-ibm-blue transition-colors text-body-md"
-                placeholder="e.g. July 28, 2026"
+                className="w-full px-4 py-2.5 bg-bg-primary border border-border rounded-lg text-text-primary focus:outline-none focus:border-ibm-blue transition-colors text-body-md [color-scheme:dark]"
               />
             </div>
 
