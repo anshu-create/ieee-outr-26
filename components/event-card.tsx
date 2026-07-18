@@ -35,6 +35,14 @@ export function EventCard({ event }: EventCardProps) {
           <h3 className="text-heading-sm text-text-primary group-hover:text-ibm-blue transition-colors line-clamp-2">
             {event.title}
           </h3>
+          {event.speaker && (
+            <p className="text-body-sm font-medium text-text-secondary mt-2 flex items-center gap-1.5">
+              <svg className="w-4 h-4 text-ibm-blue" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M16 7a4 4 0 11-8 0 4 4 0 018 0zM12 14a7 7 0 00-7 7h14a7 7 0 00-7-7z" />
+              </svg>
+              <span>{event.speaker}</span>
+            </p>
+          )}
         </div>
 
         <p className="text-body-sm text-text-secondary flex-grow mb-6 line-clamp-4">

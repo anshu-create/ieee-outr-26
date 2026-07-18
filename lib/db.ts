@@ -31,6 +31,7 @@ export interface Event {
   status: string;
   link?: string;
   imageUrl?: string;
+  speaker?: string;
 }
 
 export interface Society {

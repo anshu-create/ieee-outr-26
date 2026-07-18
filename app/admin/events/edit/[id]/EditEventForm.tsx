@@ -73,17 +73,22 @@ export function EditEventForm({ event }: { event: Event }) {
             <label className="block text-mono-sm text-text-secondary uppercase mb-2 font-medium">
               Event Type
             </label>
-            <select
+            <input
+              type="text"
               name="type"
+              list="eventTypes"
               defaultValue={event.type}
+              required
               className="w-full px-4 py-2.5 bg-bg-primary border border-border rounded-lg text-text-primary focus:outline-none focus:border-ibm-blue transition-colors text-body-md"
-            >
-              <option value="HACKATHON">HACKATHON</option>
-              <option value="WORKSHOP">WORKSHOP</option>
-              <option value="GUEST LECTURE">GUEST LECTURE</option>
-              <option value="SUMMIT">SUMMIT</option>
-              <option value="BOOTCAMP">BOOTCAMP</option>
-            </select>
+              placeholder="e.g. HACKATHON, WORKSHOP, or custom"
+            />
+            <datalist id="eventTypes">
+              <option value="HACKATHON" />
+              <option value="WORKSHOP" />
+              <option value="GUEST LECTURE" />
+              <option value="SUMMIT" />
+              <option value="BOOTCAMP" />
+            </datalist>
           </div>
 
           <div>
@@ -156,6 +161,19 @@ export function EditEventForm({ event }: { event: Event }) {
             defaultValue={event.link || ""}
             className="w-full px-4 py-2.5 bg-bg-primary border border-border rounded-lg text-text-primary focus:outline-none focus:border-ibm-blue transition-colors text-body-md"
             placeholder="https://..."
+          />
+        </div>
+
+        <div>
+          <label className="block text-mono-sm text-text-secondary uppercase mb-2 font-medium">
+            Speaker / Lecturer (Optional)
+          </label>
+          <input
+            type="text"
+            name="speaker"
+            defaultValue={event.speaker || ""}
+            className="w-full px-4 py-2.5 bg-bg-primary border border-border rounded-lg text-text-primary focus:outline-none focus:border-ibm-blue transition-colors text-body-md"
+            placeholder="e.g. Dr. Jane Doe"
           />
         </div>
 

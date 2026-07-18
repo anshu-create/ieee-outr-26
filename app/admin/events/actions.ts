@@ -14,6 +14,7 @@ export async function createEventAction(formData: FormData, imageUrl?: string) {
     description: formData.get("description") as string,
     link: formData.get("link") as string,
     imageUrl: imageUrl || undefined,
+    speaker: (formData.get("speaker") as string) || undefined,
   };
 
   await addEvent(newEvent);
@@ -33,6 +34,7 @@ export async function updateEventAction(id: number, formData: FormData, imageUrl
     description: formData.get("description") as string,
     link: formData.get("link") as string,
     imageUrl: imageUrl || undefined,
+    speaker: (formData.get("speaker") as string) || undefined,
   };
 
   await updateEvent(id, updatedEvent);
