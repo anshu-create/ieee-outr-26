@@ -35,8 +35,12 @@ export default async function EventDetailPage({ params }: { params: Promise<{ id
         
         <div className="bg-surface rounded-2xl overflow-hidden shadow-sm border border-border">
           {event.imageUrl && (
-            <div className="w-full h-[300px] md:h-[400px] relative overflow-hidden bg-bg-primary">
-              <img src={event.imageUrl} alt={event.title} className="w-full h-full object-cover" />
+            <div className="w-full relative bg-bg-primary flex justify-center py-6 border-b border-border">
+              <img 
+                src={event.imageUrl} 
+                alt={event.title} 
+                className="max-w-full max-h-[500px] object-contain" 
+              />
             </div>
           )}
           
