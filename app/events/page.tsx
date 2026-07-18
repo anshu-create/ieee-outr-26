@@ -56,7 +56,7 @@ export default async function EventsPage() {
                 className="flex items-center justify-between p-4 bg-surface border border-border rounded-lg hover:border-ibm-blue transition-colors cursor-pointer group block"
               >
                 <div className="flex items-center gap-4">
-                  <span className="text-mono-sm text-text-tertiary w-12">{archive.date.split(",").pop()?.trim()}</span>
+                  <span className="text-mono-sm text-text-tertiary w-12">{archive.date?.split(",").pop()?.trim() || "TBA"}</span>
                   <h3 className="text-body-md font-medium text-text-primary group-hover:text-ibm-blue">{archive.title}</h3>
                 </div>
                 <span className="hidden md:inline-block text-mono-sm text-text-secondary">{archive.type}</span>
