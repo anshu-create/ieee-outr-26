@@ -40,22 +40,22 @@
   --radius-pill: 9999px;
 
   /* ── Shadows (Notion/iOS style) ── */
-  --shadow-float: none;
-  --shadow-card: none;
+  --shadow-float: rgba(15, 15, 15, 0.1) 0px 0px 0px 1px, rgba(15, 15, 15, 0.1) 0px 8px 24px;
+  --shadow-card: rgba(15, 15, 15, 0.1) 0px 0px 0px 1px, rgba(15, 15, 15, 0.1) 0px 2px 4px;
 }
 
 @layer base {
   :root {
     --bg-primary: #ffffff;
-    --bg-secondary: #f7f7f5;
+    --bg-secondary: #fbfbfa;
     --surface: #ffffff;
     
-    --border: #e2e2e2;
-    --border-hover: #c4c4c4;
+    --border: rgba(15, 15, 15, 0.1);
+    --border-hover: rgba(15, 15, 15, 0.2);
     
-    --text-primary: #121212;
-    --text-secondary: #5a5a5a;
-    --text-tertiary: #878787;
+    --text-primary: #37352f;
+    --text-secondary: #787774;
+    --text-tertiary: #9c9b98;
   }
 
   .dark {
