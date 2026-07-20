@@ -26,10 +26,19 @@ export function ResearchCard({
   const isExternal = href.startsWith('http');
   const CardWrapper = isExternal ? 'a' : Link;
 
+  const getCardBg = (colorStr: string) => {
+    if (colorStr.includes('blue')) return 'var(--card-bg-blue)';
+    if (colorStr.includes('purple')) return 'var(--card-bg-purple)';
+    if (colorStr.includes('teal')) return 'var(--card-bg-green)';
+    if (colorStr.includes('magenta')) return 'var(--card-bg-red)';
+    return 'var(--card-bg-gray)';
+  };
+
   return (
     <CardWrapper href={href} className="group block h-full" {...(isExternal ? { target: "_blank", rel: "noopener noreferrer" } : {})}>
       <motion.div
-        className={`flex flex-col h-full bg-surface border-t border-r border-b border-l border-border transition-all duration-300 relative hover:border-ibm-blue ${featured ? 'md:flex-row' : ''}`}
+        className={`flex flex-col h-full border-t border-r border-b border-l border-border transition-all duration-300 relative hover:border-ibm-blue hover:shadow-card rounded-xl overflow-hidden ${featured ? 'md:flex-row' : ''}`}
+        style={{ backgroundColor: getCardBg(accentColor) }}
         initial={{ opacity: 0, y: 20 }}
         whileInView={{ opacity: 1, y: 0 }}
         viewport={{ once: true, margin: "-50px" }}

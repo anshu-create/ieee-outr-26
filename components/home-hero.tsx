@@ -5,12 +5,12 @@ import { motion, AnimatePresence } from "framer-motion";
 import Link from "next/link";
 
 const heroWords = [
-  { text: "Research", bg: "bg-ibm-blue dark:bg-ibm-blue/20", textCol: "text-white font-bold dark:text-ibm-blue dark:font-semibold", dot: "bg-white dark:bg-ibm-blue" },
-  { text: "Build", bg: "bg-ibm-teal dark:bg-ibm-teal/20", textCol: "text-white font-bold dark:text-ibm-teal dark:font-semibold", dot: "bg-white dark:bg-ibm-teal" },
-  { text: "Publish", bg: "bg-ibm-purple dark:bg-ibm-purple/20", textCol: "text-white font-bold dark:text-ibm-purple dark:font-semibold", dot: "bg-white dark:bg-ibm-purple" },
-  { text: "Learn", bg: "bg-ibm-magenta dark:bg-ibm-magenta/20", textCol: "text-white font-bold dark:text-ibm-magenta dark:font-semibold", dot: "bg-white dark:bg-ibm-magenta" },
-  { text: "Create", bg: "bg-ibm-blue dark:bg-ibm-blue/20", textCol: "text-white font-bold dark:text-ibm-blue dark:font-semibold", dot: "bg-white dark:bg-ibm-blue" },
-  { text: "Innovate", bg: "bg-ibm-teal dark:bg-ibm-teal/20", textCol: "text-white font-bold dark:text-ibm-teal dark:font-semibold", dot: "bg-white dark:bg-ibm-teal" },
+  { text: "Research", bg: "bg-blue-600 dark:bg-ibm-blue/20", textCol: "text-white font-bold dark:text-blue-300 dark:font-semibold", dot: "bg-white dark:bg-ibm-blue" },
+  { text: "Build", bg: "bg-amber-400 dark:bg-amber-500/20", textCol: "text-[#121212] font-bold dark:text-amber-300 dark:font-semibold", dot: "bg-[#121212] dark:bg-amber-400" },
+  { text: "Publish", bg: "bg-purple-600 dark:bg-ibm-purple/20", textCol: "text-white font-bold dark:text-purple-300 dark:font-semibold", dot: "bg-white dark:bg-ibm-purple" },
+  { text: "Learn", bg: "bg-green-600 dark:bg-green-500/20", textCol: "text-white font-bold dark:text-green-300 dark:font-semibold", dot: "bg-white dark:bg-green-500" },
+  { text: "Create", bg: "bg-teal-600 dark:bg-ibm-teal/20", textCol: "text-white font-bold dark:text-teal-300 dark:font-semibold", dot: "bg-white dark:bg-ibm-teal" },
+  { text: "Innovate", bg: "bg-pink-600 dark:bg-ibm-magenta/20", textCol: "text-white font-bold dark:text-pink-300 dark:font-semibold", dot: "bg-white dark:bg-ibm-magenta" },
 ];
 
 export function HomeHero() {
@@ -92,7 +92,7 @@ export function HomeHero() {
         animate={{ opacity: 1, y: 0 }}
         transition={{ delay: 0.2, duration: 0.6 }}
       >
-        <Link href="/societies" className="bg-ibm-blue text-white px-8 py-3 rounded-lg font-medium text-lg hover:bg-ibm-blue-hover transition-colors shadow-sm">
+        <Link href="/societies" className="bg-[#0f62fe] text-white px-8 py-3 rounded-lg font-medium text-lg hover:bg-[#0043ce] transition-colors shadow-sm">
           Join IEEE OUTR
         </Link>
         <Link href="/publications" className="bg-surface border border-border text-text-primary px-8 py-3 rounded-lg font-medium text-lg hover:bg-bg-secondary transition-colors shadow-sm">
@@ -106,8 +106,8 @@ export function HomeHero() {
         animate={{ opacity: 1, x: 0, rotate: 0 }}
         transition={{ delay: 0.5, duration: 0.8 }}
       >
-        <div className="w-24 h-24 bg-ibm-teal rounded-full flex items-center justify-center shadow-lg border-2 border-text-primary transform -rotate-12">
-          <svg className="w-12 h-12 text-white" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+        <div className="w-24 h-24 bg-[#ffeaa7] rounded-full flex items-center justify-center shadow-lg border-2 border-[#121212] transform -rotate-12">
+          <svg className="w-12 h-12 text-[#121212]" fill="none" viewBox="0 0 24 24" stroke="currentColor">
             <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M12 6.253v13m0-13C10.832 5.477 9.246 5 7.5 5S4.168 5.477 3 6.253v13C4.168 18.477 5.754 18 7.5 18s3.332.477 4.5 1.253m0-13C13.168 5.477 14.754 5 16.5 5c1.747 0 3.332.477 4.5 1.253v13C19.832 18.477 18.247 18 16.5 18c-1.746 0-3.332.477-4.5 1.253" />
           </svg>
         </div>
@@ -119,7 +119,7 @@ export function HomeHero() {
         animate={{ opacity: 1, x: 0, rotate: 0 }}
         transition={{ delay: 0.6, duration: 0.8 }}
       >
-        <div className="w-20 h-20 bg-ibm-purple rounded-full flex items-center justify-center shadow-lg border-2 border-text-primary transform rotate-12">
+        <div className="w-20 h-20 bg-[#a29bfe] rounded-full flex items-center justify-center shadow-lg border-2 border-[#121212] transform rotate-12">
            <svg className="w-10 h-10 text-white" fill="none" viewBox="0 0 24 24" stroke="currentColor">
              <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z" />
            </svg>

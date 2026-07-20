@@ -6,8 +6,20 @@ interface EventCardProps {
 }
 
 export function EventCard({ event }: EventCardProps) {
+  const colors = [
+    'var(--card-bg-blue)',
+    'var(--card-bg-red)',
+    'var(--card-bg-yellow)',
+    'var(--card-bg-green)',
+    'var(--card-bg-purple)'
+  ];
+  const bgColor = colors[event.id % colors.length];
+
   const cardContent = (
-    <div className="group flex flex-col bg-surface border border-border rounded-xl hover:shadow-card hover:border-border-hover hover:-translate-y-1 transition-all h-full overflow-hidden">
+    <div 
+      className="group flex flex-col border border-border rounded-xl hover:shadow-card hover:border-border-hover hover:-translate-y-1 transition-all h-full overflow-hidden"
+      style={{ backgroundColor: bgColor }}
+    >
       {event.imageUrl && (
         <div className="w-full h-48 bg-bg-secondary relative overflow-hidden border-b border-border shrink-0">
           <img src={event.imageUrl} alt={event.title} className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500" />

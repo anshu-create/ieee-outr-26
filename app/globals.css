@@ -32,7 +32,7 @@
   --font-mono: 'IBM Plex Mono', 'JetBrains Mono', monospace;
   --font-serif: 'Lyon-Text', Georgia, serif;
 
-  /* ── Border Radius (Retaining current layout constraint) ── */
+  /* ── Border Radius ── */
   --radius-sm: 0px;
   --radius-md: 0px;
   --radius-lg: 0px;
@@ -40,22 +40,30 @@
   --radius-pill: 9999px;
 
   /* ── Shadows (Notion/iOS style) ── */
-  --shadow-float: 0px 8px 24px rgba(0, 0, 0, 0.08);
-  --shadow-card: 0px 1px 3px rgba(0, 0, 0, 0.05);
+  --shadow-float: rgba(15, 15, 15, 0.1) 0px 0px 0px 1px, rgba(15, 15, 15, 0.1) 0px 8px 24px;
+  --shadow-card: rgba(15, 15, 15, 0.1) 0px 0px 0px 1px, rgba(15, 15, 15, 0.1) 0px 2px 4px;
 }
 
 @layer base {
   :root {
-    --bg-primary: #f7f7f5; /* Subtle gray background so white cards pop */
-    --bg-secondary: #ffffff; /* Alternate white sections */
-    --surface: #ffffff; /* Crisp white cards */
+    --bg-primary: #ffffff;
+    --bg-secondary: #fbfbfa;
+    --surface: #ffffff;
     
-    --border: #e5e5e5;
-    --border-hover: #d4d4d4;
+    --border: rgba(15, 15, 15, 0.1);
+    --border-hover: rgba(15, 15, 15, 0.2);
     
-    --text-primary: #000000;
-    --text-secondary: #5a5a5a;
-    --text-tertiary: #878787;
+    --text-primary: #37352f;
+    --text-secondary: #787774;
+    --text-tertiary: #9c9b98;
+
+    /* Notion Feature Card Pastel Colors */
+    --card-bg-blue: #ebf5ff;
+    --card-bg-red: #fdf1ee;
+    --card-bg-yellow: #fef7e6;
+    --card-bg-green: #e6f8f1;
+    --card-bg-purple: #f2e9f9;
+    --card-bg-gray: #f7f7f5;
   }
 
   .dark {
@@ -69,6 +77,14 @@
     --text-primary: #ffffff;
     --text-secondary: #a3a3a3;
     --text-tertiary: #737373;
+
+    /* Dark theme uses standard surface for cards to retain readability */
+    --card-bg-blue: var(--surface);
+    --card-bg-red: var(--surface);
+    --card-bg-yellow: var(--surface);
+    --card-bg-green: var(--surface);
+    --card-bg-purple: var(--surface);
+    --card-bg-gray: var(--surface);
   }
 }
 
