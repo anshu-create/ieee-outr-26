@@ -26,6 +26,7 @@ export function ResearchCard({
   const isExternal = href.startsWith('http');
   const CardWrapper = isExternal ? 'a' : Link;
 
+  return (
     <CardWrapper href={href} className="group block h-full" {...(isExternal ? { target: "_blank", rel: "noopener noreferrer" } : {})}>
       <motion.div
         className={`flex flex-col h-full bg-surface border-t border-r border-b border-l border-border transition-all duration-300 relative hover:border-ibm-blue hover:shadow-card rounded-xl overflow-hidden ${featured ? 'md:flex-row' : ''}`}
