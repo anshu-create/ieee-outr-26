@@ -19,13 +19,13 @@
   --color-text-secondary: var(--text-secondary);
   --color-text-tertiary: var(--text-tertiary);
   
-  /* ── IBM Vibrant Accents (Mapped to Notion Palette) ── */
-  --color-ibm-blue: #0077ff;
-  --color-ibm-blue-hover: #005ce6;
-  --color-ibm-purple: #9065b0;
-  --color-ibm-teal: #21a64b;
-  --color-ibm-magenta: #ff574d;
-  --color-ibm-gray: #37352f;
+  /* ── IBM Vibrant Accents ── */
+  --color-ibm-blue: #0f62fe;
+  --color-ibm-blue-hover: #0043ce;
+  --color-ibm-purple: #8a3ffc;
+  --color-ibm-teal: #007d79;
+  --color-ibm-magenta: #d12771;
+  --color-ibm-gray: #393939;
 
   /* ── Font Families ── */
   --font-sans: 'Inter', 'IBM Plex Sans', system-ui, sans-serif;
@@ -46,16 +46,16 @@
 
 @layer base {
   :root {
-    --bg-primary: #ffffff;
-    --bg-secondary: #f7f7f5;
-    --surface: #ffffff;
+    --bg-primary: #f7f7f5; /* Subtle gray background so white cards pop */
+    --bg-secondary: #ffffff; /* Alternate white sections */
+    --surface: #ffffff; /* Crisp white cards */
     
     --border: #e5e5e5;
     --border-hover: #d4d4d4;
     
     --text-primary: #000000;
-    --text-secondary: #787774;
-    --text-tertiary: #9c9b98;
+    --text-secondary: #5a5a5a;
+    --text-tertiary: #878787;
   }
 
   .dark {
