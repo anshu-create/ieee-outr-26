@@ -13,7 +13,7 @@ export default function AdminMembersPage() {
   // Form state
   const [name, setName] = useState("");
   const [role, setRole] = useState("");
-  const [category, setCategory] = useState<"faculty" | "executive" | "team">("team");
+  const [category, setCategory] = useState<"executive board" | "student board">("student board");
   const [photoUrl, setPhotoUrl] = useState("");
   const [scholarLink, setScholarLink] = useState("");
   const [linkedinLink, setLinkedinLink] = useState("");
@@ -31,7 +31,7 @@ export default function AdminMembersPage() {
   const resetForm = () => {
     setName("");
     setRole("");
-    setCategory("team");
+    setCategory("student board");
     setPhotoUrl("");
     setScholarLink("");
     setLinkedinLink("");
@@ -43,7 +43,10 @@ export default function AdminMembersPage() {
   const handleEdit = (member: Member) => {
     setName(member.name);
     setRole(member.role || "");
-    setCategory(member.category);
+    // Map legacy categories to new board categories
+    if (member.category === "executive") setCategory("executive board");
+    else if (member.category === "team" || member.category === "faculty") setCategory("student board");
+    else setCategory(member.category as "executive board" | "student board");
     setPhotoUrl(member.photoUrl || "");
     setScholarLink(member.scholarLink || "");
     setLinkedinLink(member.linkedinLink || "");
@@ -134,9 +137,8 @@ export default function AdminMembersPage() {
                   onChange={(e) => setCategory(e.target.value as any)}
                   className="w-full bg-bg-secondary border border-border rounded px-3 py-2 text-text-primary focus:outline-none focus:border-ibm-blue"
                 >
-                  <option value="faculty">Faculty</option>
-                  <option value="executive">Executive</option>
-                  <option value="team">Team Member</option>
+                  <option value="executive board">Executive Board</option>
+                  <option value="student board">Student Board</option>
                 </select>
               </div>
 

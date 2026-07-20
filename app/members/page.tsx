@@ -11,9 +11,8 @@ export const dynamic = "force-dynamic";
 export default async function MembersPage() {
   const members = await getMembers();
   
-  const excom = members.filter(m => m.category === "executive");
-  const faculty = members.filter(m => m.category === "faculty");
-  const teams = members.filter(m => m.category === "team");
+  const excom = members.filter(m => m.category === "executive board" || m.category === "executive");
+  const studentBoard = members.filter(m => m.category === "student board" || m.category === "team");
 
   return (
     <>
@@ -63,50 +62,15 @@ export default async function MembersPage() {
         </div>
       </section>
 
-      {/* ── FACULTY ── */}
-      <section className="py-24 px-6 lg:px-10 bg-bg-secondary border-t border-border">
-        <div className="max-w-[1280px] mx-auto">
-          <div className="mb-10 pb-4 border-b border-border">
-            <h2 className="text-heading-lg text-text-primary">Faculty Advisors</h2>
-          </div>
-          
-          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
-            {faculty.map((member) => (
-              <div
-                key={member.id}
-                className="bg-surface rounded-xl p-6 border border-border flex gap-4 items-start"
-              >
-                <div className="w-12 h-12 bg-ibm-blue/10 rounded flex-shrink-0 flex items-center justify-center overflow-hidden border border-border">
-                  {member.photoUrl ? (
-                    <img src={member.photoUrl} alt={member.name} className="w-full h-full object-cover" />
-                  ) : (
-                    <span className="text-ibm-blue font-bold text-lg">{member.name.charAt(4) || member.name.charAt(0)}</span>
-                  )}
-                </div>
-                <div>
-                  <h3 className="text-heading-sm text-text-primary">{member.name}</h3>
-                  <p className="text-body-sm font-medium text-text-secondary mt-1">{member.role}</p>
-                  <div className="flex gap-2 mt-2">
-                    {member.scholarLink && <a href={member.scholarLink} target="_blank" rel="noreferrer" className="text-ibm-blue hover:underline text-xs">Scholar</a>}
-                    {member.linkedinLink && <a href={member.linkedinLink} target="_blank" rel="noreferrer" className="text-ibm-blue hover:underline text-xs">LinkedIn</a>}
-                  </div>
-                </div>
-              </div>
-            ))}
-            {faculty.length === 0 && <p className="text-text-secondary">No faculty members found.</p>}
-          </div>
-        </div>
-      </section>
-
-      {/* ── COMMITTEES / TEAM ── */}
+      {/* ── STUDENT BOARD ── */}
       <section className="py-24 px-6 lg:px-10 border-t border-border">
         <div className="max-w-[1280px] mx-auto">
           <div className="mb-10 pb-4 border-b border-border">
-            <h2 className="text-heading-lg text-text-primary">Core Teams</h2>
+            <h2 className="text-heading-lg text-text-primary">Student Board</h2>
           </div>
           
           <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
-            {teams.map((member) => (
+            {studentBoard.map((member) => (
               <div
                 key={member.id}
                 className="bg-bg-secondary rounded-xl p-6 border border-border flex flex-col gap-3"
@@ -135,7 +99,7 @@ export default async function MembersPage() {
                 </div>
               </div>
             ))}
-            {teams.length === 0 && <p className="text-text-secondary">No team members found.</p>}
+            {studentBoard.length === 0 && <p className="text-text-secondary">No student board members found.</p>}
           </div>
         </div>
       </section>

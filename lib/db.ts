@@ -46,7 +46,7 @@ export interface Member {
   id: number;
   name: string;
   role?: string;
-  category: "faculty" | "executive" | "team";
+  category: "executive board" | "student board" | "faculty" | "executive" | "team";
   photoUrl?: string;
   scholarLink?: string;
   linkedinLink?: string;
