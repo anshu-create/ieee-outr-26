@@ -46,24 +46,18 @@
 
 @layer base {
   :root {
-    --bg-primary: #ffffff;
-    --bg-secondary: #fbfbfa;
-    --surface: #ffffff;
+    --bg-primary: #f4f3ed;
+    --bg-secondary: #f4f3ed;
+    --surface: #e8e4d9;
     
-    --border: rgba(15, 15, 15, 0.1);
-    --border-hover: rgba(15, 15, 15, 0.2);
+    --border: rgba(0, 0, 0, 0.08);
+    --border-hover: rgba(0, 0, 0, 0.15);
     
-    --text-primary: #37352f;
-    --text-secondary: #787774;
-    --text-tertiary: #9c9b98;
+    --text-primary: #1a1a1a;
+    --text-secondary: #555555;
+    --text-tertiary: #888888;
 
-    /* Notion Feature Card Pastel Colors */
-    --card-bg-blue: #ebf5ff;
-    --card-bg-red: #fdf1ee;
-    --card-bg-yellow: #fef7e6;
-    --card-bg-green: #e6f8f1;
-    --card-bg-purple: #f2e9f9;
-    --card-bg-gray: #f7f7f5;
+    /* Removed colorful card backgrounds */
   }
 
   .dark {
