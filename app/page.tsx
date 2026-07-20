@@ -4,18 +4,29 @@ import { EventCard } from "@/components/event-card";
 import { HomeHero } from "@/components/home-hero";
 import Link from "next/link";
 import { getPublications, getEvents } from "@/lib/db";
-import { promises as fs } from "fs";
-import path from "path";
+import { v2 as cloudinary } from "cloudinary";
 
 export const dynamic = "force-dynamic";
 
+cloudinary.config({
+  cloud_name: process.env.CLOUDINARY_CLOUD_NAME,
+  api_key: process.env.CLOUDINARY_API_KEY,
+  api_secret: process.env.CLOUDINARY_API_SECRET,
+});
+
 async function getMediaFiles() {
   try {
-    const mediaDir = path.join(process.cwd(), "assets", "media");
-    await fs.mkdir(mediaDir, { recursive: true });
-    const files = await fs.readdir(mediaDir);
-    return files.filter(file => /\.(jpg|jpeg|png|gif|webp|avif)$/i.test(file));
+    const result = await cloudinary.api.resources({
+      type: "upload",
+      prefix: "media-",
+      max_results: 6,
+    });
+    return result.resources.map((res: any) => ({
+      filename: res.public_id,
+      url: res.secure_url,
+    }));
   } catch (error) {
+    console.error("Error fetching media from Cloudinary:", error);
     return [];
   }
 }
@@ -156,11 +167,11 @@ export default async function HomePage() {
           </div>
 
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
-            {topMedia.map((filename) => (
-              <div key={filename} className="relative aspect-video rounded-xl overflow-hidden border border-border group bg-bg-secondary">
+            {topMedia.map((file) => (
+              <div key={file.filename} className="relative aspect-video rounded-xl overflow-hidden border border-border group bg-bg-secondary">
                 <img 
-                  src={`/api/media/${filename}`}
-                  alt={filename}
+                  src={file.url}
+                  alt={file.filename}
                   className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105"
                 />
               </div>
