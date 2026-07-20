@@ -167,7 +167,7 @@ export default async function HomePage() {
           </div>
 
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
-            {topMedia.map((file) => (
+            {topMedia.map((file: { filename: string; url: string }) => (
               <div key={file.filename} className="relative aspect-video rounded-xl overflow-hidden border border-border group bg-bg-secondary">
                 <img 
                   src={file.url}
