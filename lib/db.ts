@@ -51,6 +51,7 @@ export interface Member {
   scholarLink?: string;
   linkedinLink?: string;
   githubLink?: string;
+  order?: number;
 }
 
 // ── PUBLICATIONS METHODS ──
@@ -195,6 +196,15 @@ export async function getMembers(): Promise<Member[]> {
     querySnapshot.forEach((doc) => {
       members.push(doc.data() as Member);
     });
+    
+    // Sort by category first (executive board ahead of others) then by order
+    members.sort((a, b) => {
+      const aExec = a.category === "executive board" || a.category === "executive" ? 0 : 1;
+      const bExec = b.category === "executive board" || b.category === "executive" ? 0 : 1;
+      if (aExec !== bExec) return aExec - bExec;
+      return (a.order ?? a.id) - (b.order ?? b.id);
+    });
+
     return members;
   } catch (error) {
     console.error("Error getting members:", error);
@@ -206,7 +216,8 @@ export async function addMember(newMember: Omit<Member, "id">): Promise<void> {
   const members = await getMembers();
   const newId = members.length > 0 ? Math.max(...members.map((m) => m.id)) + 1 : 1;
   const docRef = doc(db, "members", String(newId));
-  await setDoc(docRef, { ...newMember, id: newId });
+  // Default order to newId to keep it at the end
+  await setDoc(docRef, { ...newMember, id: newId, order: newMember.order ?? newId });
 }
 
 export async function deleteMember(id: number): Promise<void> {
@@ -217,4 +228,12 @@ export async function deleteMember(id: number): Promise<void> {
 export async function updateMember(id: number, updatedData: Partial<Member>): Promise<void> {
   const docRef = doc(db, "members", String(id));
   await updateDoc(docRef, updatedData);
+}
+
+export async function updateMembersOrder(updates: { id: number; order: number }[]): Promise<void> {
+  const promises = updates.map(update => {
+    const docRef = doc(db, "members", String(update.id));
+    return updateDoc(docRef, { order: update.order });
+  });
+  await Promise.all(promises);
 }

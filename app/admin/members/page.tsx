@@ -2,7 +2,7 @@
 
 import { useState, useEffect } from "react";
 import { Member } from "@/lib/db";
-import { addMemberAction, updateMemberAction, deleteMemberAction, getMembersAction } from "./actions";
+import { addMemberAction, updateMemberAction, deleteMemberAction, getMembersAction, updateMembersOrderAction } from "./actions";
 import { showToast } from "@/components/admin-toast";
 
 export default function AdminMembersPage() {
@@ -61,6 +61,36 @@ export default function AdminMembersPage() {
       await loadMembers();
       showToast("Member deleted successfully");
     }
+  };
+
+  const getCategoryGroup = (cat: string) => {
+    return cat === "executive board" || cat === "executive" ? 0 : 1;
+  };
+
+  const handleMoveUp = async (index: number) => {
+    if (index === 0) return;
+    const newMembers = [...members];
+    if (getCategoryGroup(newMembers[index].category) !== getCategoryGroup(newMembers[index - 1].category)) return;
+
+    [newMembers[index - 1], newMembers[index]] = [newMembers[index], newMembers[index - 1]];
+    const updates = newMembers.map((m, i) => ({ id: m.id, order: i }));
+    
+    setMembers(newMembers);
+    await updateMembersOrderAction(updates);
+    showToast("Order updated");
+  };
+
+  const handleMoveDown = async (index: number) => {
+    if (index === members.length - 1) return;
+    const newMembers = [...members];
+    if (getCategoryGroup(newMembers[index].category) !== getCategoryGroup(newMembers[index + 1].category)) return;
+
+    [newMembers[index + 1], newMembers[index]] = [newMembers[index], newMembers[index + 1]];
+    const updates = newMembers.map((m, i) => ({ id: m.id, order: i }));
+    
+    setMembers(newMembers);
+    await updateMembersOrderAction(updates);
+    showToast("Order updated");
   };
 
   const handleSubmit = async (e: React.FormEvent) => {
@@ -237,7 +267,7 @@ export default function AdminMembersPage() {
                   </tr>
                 </thead>
                 <tbody className="divide-y divide-border">
-                  {members.map((member) => (
+                  {members.map((member, index) => (
                     <tr key={member.id} className="hover:bg-bg-secondary/50 transition-colors">
                       <td className="px-6 py-4">
                         <div className="flex items-center gap-3">
@@ -268,6 +298,23 @@ export default function AdminMembersPage() {
                       </td>
                       <td className="px-6 py-4 text-right">
                         <div className="flex justify-end gap-2">
+                          <button
+                            onClick={() => handleMoveUp(index)}
+                            disabled={index === 0 || getCategoryGroup(member.category) !== getCategoryGroup(members[index - 1].category)}
+                            className="p-2 text-text-secondary hover:text-ibm-blue hover:bg-ibm-blue/10 rounded transition-colors disabled:opacity-30 disabled:hover:bg-transparent"
+                            title="Move Up"
+                          >
+                            <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M5 15l7-7 7 7" /></svg>
+                          </button>
+                          <button
+                            onClick={() => handleMoveDown(index)}
+                            disabled={index === members.length - 1 || getCategoryGroup(member.category) !== getCategoryGroup(members[index + 1].category)}
+                            className="p-2 text-text-secondary hover:text-ibm-blue hover:bg-ibm-blue/10 rounded transition-colors disabled:opacity-30 disabled:hover:bg-transparent"
+                            title="Move Down"
+                          >
+                            <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M19 9l-7 7-7-7" /></svg>
+                          </button>
+                          <div className="w-px h-6 bg-border mx-1 self-center"></div>
                           <button
                             onClick={() => handleEdit(member)}
                             className="p-2 text-text-secondary hover:text-ibm-blue hover:bg-ibm-blue/10 rounded transition-colors"

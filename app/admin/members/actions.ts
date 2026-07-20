@@ -24,3 +24,10 @@ export async function deleteMemberAction(id: number) {
   revalidatePath("/admin/members");
   revalidatePath("/members");
 }
+
+export async function updateMembersOrderAction(updates: { id: number; order: number }[]) {
+  const { updateMembersOrder } = await import("@/lib/db");
+  await updateMembersOrder(updates);
+  revalidatePath("/admin/members");
+  revalidatePath("/members");
+}
